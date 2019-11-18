@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <title>Filmdatabasen - Slet Film</title>
+</head>
+<body style="background-image: url(https://wallpaperplay.com/walls/full/2/5/a/355910.jpg);background-size: 100% 100%;background-attachment: fixed">
+<nav style="position: fixed;color: aliceblue;font-family: Bahnschrift,serif;width: 100%;background: linear-gradient(to right, #000000 0%,#0022AE 25%, #000000 50%,#0022AE 75%,#000000 100%);line-height: 20px;border-bottom: 3px solid black">
+    <table>
+        <tr>
+            <td style="text-align: right;width: 55px;color: dodgerblue;font-family: Bahnschrift,serif;margin-left: 10px;font-size: 20px;font-weight: bold" th:text="'FILM'"></td>
+            <td style="text-align: right;width: 110px;color: white;font-family: Bahnschrift,serif;margin-left: 10px;font-size: 20px" th:text="'DATABASEN'"></td>
+            <td style="text-align: right;width: 800px">
+                <a th:href="${'/home/'}+${user.id}"><button style="background-color: royalblue;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Hjem</button></a>
+            </td>
+            <td>
+                <a th:href="${'/users/'}+${user.id}"><button style="background-color: orange;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Brugere</button></a>
+            </td>
+            <td>
+                <a th:href="${'/movies/newMovie/'}+${user.id}"><button style="background-color: forestgreen;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Opret film</button></a>
+            </td>
+            <td style="color: white;text-align: right;width: 550px" th:text="'Logget ind som: '" ></td>
+            <td style="width: 10px"></td>
+            <td style="color: dodgerblue;font-weight: bold;text-align: left;width: 200px" th:text="${user.name}" ></td>
+
+            <td style="text-align: right">
+                <a th:href="${'/'}"><button style="background-color: slategrey;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Log ud</button></a>
+            </td>
+        </tr>
+    </table>
+</nav>
+<br><br><br>
+<h1 style="text-align: center;text-shadow:3px 3px 3px #000;font-family: Bahnschrift,serif;color: aliceblue">SLET FILM</h1>
+<br><br>
+<div class="container" style="border: 5px solid black;background:rgba(0,0,0,0.5);text-align: center">
+    <br>
+    <h3 style="text-align: center;font-family: Bahnschrift,serif;color: aliceblue" th:text="'Er du sikker på at du vil slette'"></h3>
+        <br>
+        <table>
+            <tr>
+                <h2 style="color: aliceblue;font-weight: bold;font-family: Bahnschrift,serif" th:text="${movie.title}"></h2>
+            </tr>
+            <br>
+            <tr>
+                <img th:src="${movie.pictureURL}" style="height: 300px;color: white" alt="Billede mangler..." src=""/>
+            </tr>
+        </table>
+    <br>
+    <form action="#" th:action="@{/movies/deleteMovie/}+${user.id}" method="post" style="text-align: center">
+        <input type="hidden" th:field="${movie.movieId}"/>
+        <br>
+        <p><input type="submit" value="JA" style="width: 80px;height: 30px; text-align: center;background-color: red;color: aliceblue;font-family: Bahnschrift,serif;font-size: medium"/></p>
+    </form>
+    <a th:href="@{'/home/'}+${user.id}"><button style="background-color: slategrey;width: 80px;margin-bottom: 40px;height: 30px;color: white;font-family: Bahnschrift,serif">NEJ</button></a>
+    <br>
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>MovieDatabase - Rediger bruger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body style="background-image: url(https://wallpaperplay.com/walls/full/2/5/a/355910.jpg);background-size: 100% 100%;background-attachment: fixed">
+<nav style="position: fixed;color: aliceblue;font-family: Bahnschrift,serif;width: 100%;background: linear-gradient(to right, #000000 0%,#0022AE 25%, #000000 50%,#0022AE 75%,#000000 100%);line-height: 20px;border-bottom: 3px solid black">
+    <table>
+        <tr>
+            <td style="text-align: right;width: 55px;color: dodgerblue;font-family: Bahnschrift,serif;margin-left: 10px;font-size: 20px;font-weight: bold" th:text="'FILM'"></td>
+            <td style="text-align: right;width: 110px;color: white;font-family: Bahnschrift,serif;margin-left: 10px;font-size: 20px" th:text="'DATABASEN'"></td>
+            <td style="text-align: right;width: 800px">
+                <a th:href="${'/home/'}+${currentUser.id}"><button style="background-color: royalblue;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Hjem</button></a>
+            </td>
+            <td>
+                <a th:href="${'/users/'}+${currentUser.id}"><button style="background-color: orange;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Brugere</button></a>
+            </td>
+            <td>
+                <a th:href="${'/movies/newMovie/'}+${currentUser.id}"><button style="background-color: forestgreen;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Opret film</button></a>
+            </td>
+            <td style="color: white;text-align: right;width: 550px" th:text="'Logget ind som: '" ></td>
+            <td style="width: 10px"></td>
+            <td style="color: dodgerblue;font-weight: bold;text-align: left;width: 200px" th:text="${currentUser.name}" ></td>
+
+            <td style="text-align: right">
+                <a th:href="${'/'}"><button style="background-color: slategrey;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Log ud</button></a>
+            </td>
+        </tr>
+    </table>
+</nav>
+<br><br>
+<h1 style="text-align: center;text-shadow:3px 3px 3px #000;font-family: Bahnschrift,serif;color: aliceblue">REDIGER BRUGER</h1>
+<br>
+<div class="container" style="text-align: center;background:rgba(0,0,0,0.5);border: 5px double black">
+    <br>
+    <h4 style="text-align: center;font-family: Bahnschrift,serif;color: aliceblue" th:text="'Indtast oplysninger på den bruger der skal redigeres.'"></h4>
+    <br>
+    <form action="#" th:action="@{/users/editUser/}+${currentUser.id}" method="post">
+        <input type="hidden" th:field="${editingUser.id}"/>
+        <table style="margin-left: 35%">
+            <tr>
+                <th><p style="text-align: right;font-family: Bahnschrift,serif;text-shadow:1px 1px 1px #000;color: aliceblue;font-size: large;margin-top: 15px">Brugernavn</p></th>
+                <td><input type="text" th:field="${editingUser.userName}" placeholder="Brugernavn" onfocus="this.placeholder=''" onblur="this.placeholder='Brugernavn'" style="height: 35px;font-family: Bahnschrift,serif;font-size: large;margin-left: 20px" required/></td>
+            </tr>
+            <tr>
+                <th><p style="text-align: right;font-family: Bahnschrift,serif;text-shadow:1px 1px 1px #000;color: aliceblue;font-size: large;margin-top: 15px">Adgangskode</p></th>
+                <td><input type="password" th:field="${editingUser.passWord}" placeholder="Adgangskode" onfocus="this.placeholder=''" onblur="this.placeholder='Adgangskode'" style="height: 35px;font-family: Bahnschrift,serif;font-size: large;margin-left: 20px" required/></td>
+            </tr>
+            <tr>
+                <th><p style="text-align: right;font-family: Bahnschrift,serif;text-shadow:1px 1px 1px #000;color: aliceblue;font-size: large;margin-top: 15px">Fornavn</p></th>
+                <td><input type="text" th:field="${editingUser.firstName}" placeholder="Fornavn" onfocus="this.placeholder=''" onblur="this.placeholder='Adgangskode'" style="height: 35px;font-family: Bahnschrift,serif;font-size: large;margin-left: 20px" required/></td>
+            </tr>
+            <tr>
+                <th><p style="text-align: right;font-family: Bahnschrift,serif;text-shadow:1px 1px 1px #000;color: aliceblue;font-size: large;margin-top: 15px">Efternavn</p></th>
+                <td><input type="text" th:field="${editingUser.lastName}" placeholder="Efternavn" onfocus="this.placeholder=''" onblur="this.placeholder='Adgangskode'" style="height: 35px;font-family: Bahnschrift,serif;font-size: large;margin-left: 20px" required/></td>
+            </tr>
+            <tr>
+                <th><p style="text-align: right;font-family: Bahnschrift,serif;text-shadow:1px 1px 1px #000;color: aliceblue;font-size: large;margin-top: 15px">Administrator</p></th>
+                <td style="font-family: Bahnschrift,serif;color: aliceblue">
+                    <input type="radio" th:field="${editingUser.admin}" name="admin" value="true" style="line-height: 35px;font-family: Bahnschrift,serif;font-size: large;margin-left: 20px" required/>Ja
+                    <input type="radio" th:field="${editingUser.admin}" name="admin" value="false" style="line-height: 35px;font-family: Bahnschrift,serif;font-size: large;margin-left: 20px" required/>Nej
+                </td>
+
+            </tr>
+        </table>
+        <br><br>
+        <p><input type="submit" value="Opdater" style="width: 150px;height: 30px; text-align: center;background-color: royalblue;color: aliceblue;font-family: Bahnschrift,serif;font-size: medium"/></p>
+    </form>
+    <div style="text-align: center">
+        <a th:href="${'/users/'}+${currentUser.id}"><button style="background-color: slategrey;width: 150px;height: 30px;color: aliceblue;font-family: Bahnschrift,serif;font-size: medium">Annuller</button></a>
+    </div>
+    <br><br>
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+</html>

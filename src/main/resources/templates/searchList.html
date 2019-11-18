@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <title>Filmdatabasen - Søgeresultat</title>
+</head>
+<body style="background-image: url(https://wallpaperplay.com/walls/full/2/5/a/355910.jpg);background-size: 100% 100%;background-attachment: fixed">
+<nav style="position: fixed;color: aliceblue;font-family: Bahnschrift,serif;width: 100%;background: linear-gradient(to right, #000000 0%,#0022AE 25%, #000000 50%,#0022AE 75%,#000000 100%);line-height: 20px;border-bottom: 3px solid black">
+    <table>
+        <tr>
+            <td style="text-align: right;width: 55px;color: dodgerblue;font-family: Bahnschrift,serif;margin-left: 10px;font-size: 20px;font-weight: bold" th:text="'FILM'"></td>
+            <td style="text-align: right;width: 110px;color: white;font-family: Bahnschrift,serif;margin-left: 10px;font-size: 20px" th:text="'DATABASEN'"></td>
+            <td style="text-align: right;width: 800px">
+                <a th:href="${'/home/'}+${user.id}"><button style="background-color: royalblue;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Hjem</button></a>
+            </td>
+            <td>
+                <a th:href="${'/users/'}+${user.id}"><button style="background-color: orange;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Brugere</button></a>
+            </td>
+            <td>
+                <a th:href="${'/movies/newMovie/'}+${user.id}"><button style="background-color: forestgreen;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Opret film</button></a>
+            </td>
+            <td style="color: white;text-align: right;width: 550px" th:text="'Logget ind som: '" ></td>
+            <td style="width: 10px"></td>
+            <td style="color: dodgerblue;font-weight: bold;text-align: left;width: 200px" th:text="${user.name}" ></td>
+
+            <td style="text-align: right">
+                <a th:href="${'/'}"><button style="background-color: slategrey;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Log ud</button></a>
+            </td>
+        </tr>
+    </table>
+</nav>
+<br><br><br>
+<h1 style="text-align: center;font-family: Bahnschrift,serif;color: white;text-shadow:3px 3px 3px #000">SØGERESULTAT</h1>
+<br>
+<div class="container" style="font-family: Bahnschrift,serif;background:rgba(0,0,0,0.5);border: 5px solid black">
+    <form action="#" th:action="'/home/'+${user.id}" method="post" style="background-color: transparent;margin-top: 20px">
+        <table class="table">
+            <td style="font-family: Bahnschrift,serif;color: aliceblue;border-top: transparent;line-height: 30px;width: 150px;font-size: medium;text-align: right">Søg efter:</td>
+            <td style="border-top: transparent;font-family: Bahnschrift,serif;font-size: medium">
+                <select th:field="${search.option}" style="width: 70px;height: 30px">
+                    <option value="1">Titel</option>
+                    <option value="2">Genre</option>
+                    <option value="3">Årstal</option>
+                </select>
+            </td>
+            <td style="border-top: transparent;font-family: Bahnschrift,serif;color: black;font-size: medium">
+                <input type="text" placeholder="Skriv her..." th:field="${search.text}" style="width: 700px;height: 30px" required/>
+                <input type="submit" value="Søg" style="width: 80px;height: 30px;margin-left: 15px">
+            </td>
+        </table>
+    </form>
+    <table style="background-color: transparent;margin-bottom: 10px">
+        <td style="color: white;font-style: italic;font-size: larger;font-family: Bahnschrift,serif;width: 160px;text-align: left" th:text="'Søgeresultat for: '"></td>
+        <td style="width: 20px"></td>
+        <td style="color: darkorange;font-weight: bold;font-size: larger;font-family: Bahnschrift,serif;width: 630px" th:text="${text}"></td>
+        <form action="#" th:action="'/home/sortedSearch/'+${user.id}+'/'+${option}+'/'+${text}" method="post" style="background-color: transparent;margin-top: 20px;text-align: right">
+            <td style="font-family: Bahnschrift,serif;color: aliceblue;border-top: transparent;line-height: 30px;font-size: medium;width: 950px;text-align: right">Sorter efter:</td>
+            <td style="border-top: transparent;font-family: Bahnschrift,serif;font-size: medium">
+                <select th:field="${search.option}" style="width: 120px;height: 30px; margin-right: 10px;margin-left: 10px">
+                    <option value="1">Titel</option>
+                    <option value="2">Årstal</option>
+                    <option value="3">Bedømmelse</option>
+                    <option value="4">Varighed</option>
+                </select>
+            </td>
+            <td style="border-top: transparent;font-family: Bahnschrift,serif;color: black;font-size: medium">
+                <input type="submit" value="Sorter" style="width: 80px;height: 30px;margin-right: 2px">
+            </td>
+        </form>
+    </table>
+    <table class="table table-striped table-hover" style="border: 2px solid black">
+        <thead style="background: lightgrey;color: black">
+        <tr>
+            <th style="width: 75px;border-bottom: 2px solid black"></th>
+            <th style="width: 200px;font-size: medium;border-bottom: 2px solid black">Titel</th>
+            <th style="width: 75px;font-size: medium;border-bottom: 2px solid black">Genre</th>
+            <th style="font-size: medium;border-bottom: 2px solid black">Beskrivelse</th>
+            <th style="width: 60px;font-size: medium;border-bottom: 2px solid black">Årstal</th>
+            <th style="width: 75px;font-size: medium;border-bottom: 2px solid black">Varighed</th>
+            <th style="font-size: medium;border-bottom: 2px solid black">Bedømmelse</th>
+            <th style="width: 50px;border-bottom: 2px solid black"></th>
+            <div th:if="${user.admin}">
+                <th style="width: 125px;border-bottom: 2px solid black;">Admin-Options</th>
+            </div>
+        </tr>
+        </thead>
+        <tbody th:each="movie: ${movies}">
+        <tr>
+            <td><img th:src="${movie.pictureURL}" style="height: 100px;line-height: 100px" alt="Indsæt billede her."/></td>
+            <td><a th:text="${movie.title}" th:href="'/movies/'+${movie.movieId}+'/'+${user.id}" style="color: black;font-weight: bold;font-size: large"></a></td>
+            <td><p th:text="${movie.genre}" style="font-size: smaller"></p></td>
+            <td><p th:text="${movie.description}" style="font-style: italic;font-size: small"></p></td>
+            <td><p th:text="${movie.year}" style="font-weight: bold"></p></td>
+            <td><p th:text="${movie.duration}+' min.'" style="font-weight: bold"></p></td>
+            <td><p style="text-align: center;color: black;font-weight: bold" th:text="${movie.rating}+' / 10'"></p></td>
+            <td><br>
+                <form action="#" th:action="'/home/'+${movie.movieId}+'/'+${user.id}" method="post" style="width: 50px">
+                    <input style="width: 53px;margin-bottom: 5px;text-align: center" type="number" name="rating" min="1" max="10" step="1">
+                    <input style="width: 53px;margin-top: 5px;font-size: smaller;background-color: dodgerblue;color: aliceblue" type="submit" value="Bedøm" th:field="${currentRating.rating}">
+                </form>
+            </td>
+            <div th:if="${user.admin}">
+                <td style="text-align: center;line-height: 100px">
+                    <a class="glyphicon glyphicon-wrench" style="font-size: 150%" th:href="${'/movies/editMovie/'}+${movie.movieId}+'/'+${user.id}"></a>
+                    <a class="glyphicon glyphicon-trash" style="font-size: 150%" th:href="${'/movies/deleteMovie/'}+${movie.movieId}+'/'+${user.id}"></a>
+                </td>
+            </div>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<div style="text-align: center">
+    <a th:href="${'/home/'+user.id}"><button style="background-color: aliceblue;width: 150px;height: 35px;color: black;font-family: Bahnschrift,serif;font-size: medium">Gå tilbage</button></a>
+</div>
+<br><br><br>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+</html>

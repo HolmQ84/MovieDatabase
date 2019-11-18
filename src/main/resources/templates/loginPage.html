@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Filmdatabasen - Login</title>
+</head>
+<body style="background-image: url(https://wallpaperplay.com/walls/full/2/5/a/355910.jpg);background-size: 100% 100%;background-attachment: fixed">
+<br><br><br><br>
+<div class="container" style="margin-left: 23%">
+    <table style="font-family: Bahnschrift,serif;text-shadow:4px 4px 4px #000;color: aliceblue;font-size: 65px;font-weight: bold">
+        <td th:text="'VELKOMMEN TIL '"></td>
+        <td style="width: 15px"></td>
+        <td style="color: dodgerblue" th:text="'FILM'"></td>
+        <td th:text="'DATABASEN'"></td>
+    </table>
+</div>
+<br><br><br>
+<div class="container" style="border: 5px solid black;background:rgba(0,0,0,0.5);text-align: center;width: 700px">
+    <br>
+    <h4 style="text-align: center;font-family: Bahnschrift,serif;color: aliceblue">Indtast oplysninger for at logge ind.</h4>
+    <br>
+        <form action="#" th:action="@{/}"  method="post">
+            <table style="margin-left: 17%">
+                <tr>
+                    <td style="width: 150px"><p style="text-align: right;font-family: Bahnschrift,serif;text-shadow:1px 1px 1px #000;color: aliceblue;font-size: large;margin-top: 15px">Brugernavn</p></td>
+                    <td style="width: 150px"><input type="text" th:field="${user.userName}" style="height: 35px;font-family: Bahnschrift,serif;font-size: large;margin-left: 20px"/></td>
+                </tr>
+                <tr>
+                    <td style="width: 150px"><p style="text-align: right;font-family: Bahnschrift,serif;text-shadow:1px 1px 1px #000;color: aliceblue;font-size: large;margin-top: 15px">Kodeord</p></td>
+                    <td style="width: 150px"><input type="password" th:field="${user.passWord}" style="height: 35px;font-family: Bahnschrift,serif;font-size: large;margin-left: 20px"/></td>
+                </tr>
+            </table>
+            <br>
+            <p><input type="submit" value="Login" style="width: 150px;text-shadow:2px 2px 2px #000;height: 30px;background-color: forestgreen;color: white;font-family: Bahnschrift,serif;font-size: medium"/><br></p>
+        </form>
+    <div>
+        <a th:href="${'/forgot'}"><button style="background-color: orange;text-shadow:2px 2px 2px #000;width: 150px;height: 30px;color: white;font-family: Bahnschrift,serif;font-size: medium">Glemt Password</button></a>
+    </div>
+    <br><br><br>
+    <tr>
+        <td>
+            <a style="text-align: center;font-family: Bahnschrift,serif;color: aliceblue;margin-right: 10px;text-decoration: none" th:text="'Ikke medlem endnu? Opret dig her'"></a>
+            <a th:href="${'/users/newUser'}"><button style="background-color: dodgerblue;text-shadow:2px 2px 2px #000;width: 150px;height: 30px;color: white;font-family: Bahnschrift,serif;font-size: medium">Opret bruger</button></a>
+        </td>
+    </tr>
+    <br>
+
+    <br><br>
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+</html>

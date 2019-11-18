@@ -1,0 +1,5 @@
+59413415 Martin Holmqvist Shawk 1234 true
+95199138 Preben Elkjær Prelk 1234 false
+32341727 Anders Mikkelsen Andemik 1234 false
+52118612 Søren Jensen Sørjen 1234 true
+10631175 Niels Thomsen Nithom 1234 false

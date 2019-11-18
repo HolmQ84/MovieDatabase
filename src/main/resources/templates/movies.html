@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <title th:text="'Filmdatabasen - '+${currentMovie.title}"></title>
+</head>
+<body style="background-image: url(https://wallpaperplay.com/walls/full/2/5/a/355910.jpg);background-size: 100% 100%;background-attachment: fixed">
+<nav style="position: fixed;color: aliceblue;font-family: Bahnschrift,serif;width: 100%;background: linear-gradient(to right, #000000 0%,#0022AE 25%, #000000 50%,#0022AE 75%,#000000 100%);line-height: 20px;border-bottom: 3px solid black">
+    <table>
+        <tr>
+            <td style="text-align: right;width: 55px;color: dodgerblue;font-family: Bahnschrift,serif;margin-left: 10px;font-size: 20px;font-weight: bold" th:text="'FILM'"></td>
+            <td style="text-align: right;width: 110px;color: white;font-family: Bahnschrift,serif;margin-left: 10px;font-size: 20px" th:text="'DATABASEN'"></td>
+            <td style="text-align: right;width: 800px">
+                <a th:href="${'/home/'}+${currentUser.id}"><button style="background-color: royalblue;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Hjem</button></a>
+            </td>
+            <td>
+                <a th:href="${'/users/'}+${currentUser.id}"><button style="background-color: orange;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Brugere</button></a>
+            </td>
+            <td>
+                <a th:href="${'/movies/newMovie/'}+${currentUser.id}"><button style="background-color: forestgreen;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Opret film</button></a>
+            </td>
+            <td style="color: white;text-align: right;width: 550px" th:text="'Logget ind som: '" ></td>
+            <td style="width: 10px"></td>
+            <td style="color: dodgerblue;font-weight: bold;text-align: left;width: 200px" th:text="${currentUser.name}" ></td>
+
+            <td style="text-align: right">
+                <a th:href="${'/'}"><button style="background-color: slategrey;width: 80px;margin-right: 10px;margin-bottom: 5px;margin-top: 5px;color: white;font-family: Bahnschrift,serif">Log ud</button></a>
+            </td>
+        </tr>
+    </table>
+</nav>
+<br><br>
+<h1 th:text="'Detaljer for '+${currentMovie.title}" style="font-family: Bahnschrift,serif;text-align: center;color: aliceblue;text-shadow:3px 3px 3px #000"></h1>
+<div class="container" style="font-family: Bahnschrift,serif;font-size: 16px">
+<table>
+    <td>
+        <table class="table table-striped" style="border: 5px solid black;background-color: aliceblue;margin-top: 20px;margin-left: 15px">
+            <tr>
+                <td style="background-color: grey;color: aliceblue;line-height: 37px;width: 150px;text-align: right">Titel</td>
+                <td th:text="${currentMovie.title}" style="line-height: 37px;margin-left: 10px;font-weight: bold"></td>
+            </tr>
+            <tr>
+                <td style="background-color: grey;color: aliceblue;line-height: 37px;text-align: right">Genre</td>
+                <td th:text="${currentMovie.genre}" style="line-height: 37px;font-weight: bold"></td>
+            </tr>
+            <tr>
+                <td style="background-color: grey;color: aliceblue;line-height: 45px;text-align: right">Beskrivelse</td>
+                <td th:text="${currentMovie.description}" style="width: 700px;font-weight: bold;font-style: italic;font-size: small"></td>
+            </tr>
+            <tr>
+                <td style="background-color: grey;color: aliceblue;line-height: 37px;text-align: right">Årstal</td>
+                <td th:text="${currentMovie.year}" style="line-height: 37px;font-weight: bold"></td>
+            </tr>
+            <tr>
+                <td style="background-color: grey;color: aliceblue;line-height: 37px;text-align: right">Varighed</td>
+                <td th:text="${currentMovie.duration}+' minutter'" style="line-height: 37px;font-weight: bold"></td>
+            </tr>
+            <tr >
+                <td style="background-color: grey;color: aliceblue;line-height: 37px;text-align: right">Bedømmelse</td>
+                <td th:text="${currentMovie.rating}+' / 10 - ('+${currentMovie.ratingCounter}+' stemmer)'" style="line-height: 37px;font-weight: bold"></td>
+            </tr>
+            <tr>
+                <td style="background-color: grey;color: aliceblue;line-height: 37px;text-align: right">Bedøm den<td>
+                    <form action="#" th:action="'/movies/'+${currentMovie.movieId}+'/'+${currentUser.id}" method="post" style="width: 50px">
+                        <div style="line-height: 37px;width: 400px;font-weight: bold;margin-left: 10px">
+                            <label>
+                            <input type="radio" name="Rating" value="1">1
+                            <input type="radio" name="Rating" value="2">2
+                            <input type="radio" name="Rating" value="3">3
+                            <input type="radio" name="Rating" value="4">4
+                            <input type="radio" name="Rating" value="5">5
+                            <input type="radio" name="Rating" value="6">6
+                            <input type="radio" name="Rating" value="7">7
+                            <input type="radio" name="Rating" value="8">8
+                            <input type="radio" name="Rating" value="9">9
+                            <input type="radio" name="Rating" value="10">10
+                            </label>
+                            <input style="font-size: smaller;line-height: 20px;background-color: dodgerblue;color: aliceblue;margin-left: 10px;font-weight: normal" type="submit" value="Bedøm" th:field="${currentRating.rating}">
+                        </div>
+                    </form>
+            </tr>
+        </table>
+    </td>
+    <td>
+        <img th:src="${currentMovie.pictureURL}" style="border: 5px solid black;height: 395px;line-height: 395px" alt="Picture here" src=""/>
+    </td>
+</table>
+</div>
+<br>
+<div class="container" style="text-align: center">
+    <iframe width="480" height="270" style="border: 5px solid black" th:src="${currentMovie.videoURL}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<br>
+<div style="text-align: center">
+    <a th:href="${'/home/'+currentUser.id}"><button style="background-color: aliceblue;width: 150px;height: 35px;color: black;font-family: Bahnschrift,serif;font-size: medium">Gå tilbage</button></a>
+</div>
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</body>
+</html>

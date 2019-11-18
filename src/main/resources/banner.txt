@@ -1,0 +1,11 @@
+${AnsiColor.BLUE}
+    ♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♫
+    ♭♩   ${AnsiColor.BLACK}         __       ${AnsiColor.BRIGHT_GREEN}        _   _         _              ___   _             ____                _                _       ${AnsiColor.BLACK}         __       ${AnsiColor.BLUE}    ♭♩
+    ♬  ${AnsiColor.BLACK}         /'{>      ${AnsiColor.BRIGHT_GREEN}       | | | |  ___  | | _ __ ___   / _ \ |/ ___        / ___|  _ __   _ __ (_) _ __    __ _ | |      ${AnsiColor.BLACK}        /'{>      ${AnsiColor.BLUE}    ♫♩
+    ♩♫ ${AnsiColor.BLACK}      ____) (____      ${AnsiColor.BRIGHT_GREEN}    | |_| | / _ \ | || '_ ` _ \ | | | |  / __|       \___ \ | '_ \ | '__|| || '_ \  / _` || |      ${AnsiColor.BLACK}    ____) (____     ${AnsiColor.BLUE}  ♬
+    ♬  ${AnsiColor.BLACK}   //'--;   ;--'\\    ${AnsiColor.BRIGHT_GREEN}    |  _  || (_) || || | | | | || |_| |  \__ \        ___) || |_) || |   | || | | || (_| ||_|      ${AnsiColor.BLACK}  //'--;   ;--'\\   ${AnsiColor.BLUE}  ♩♭
+    ♩♫ ${AnsiColor.BLACK}   ///////\_/\\\\\\\    ${AnsiColor.BRIGHT_GREEN}   |_| |_| \___/ |_||_| |_| |_| \__\_\  |___/       |____/ | .__/ |_|   |_||_| |_| \__, |(_)      ${AnsiColor.BLACK} ///////\_/\\\\\\\  ${AnsiColor.BLUE}  ♩♫
+    ♫♩  ${AnsiColor.BLACK}         m m                                                            ${AnsiColor.BRIGHT_GREEN}          |_|                     |___/          ${AnsiColor.BLACK}        m m         ${AnsiColor.BLUE}  ♬
+    ♬                                                                                                                                                 ♭♩
+    ♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♭♩♫♪♬♫
+${AnsiColor.WHITE}
